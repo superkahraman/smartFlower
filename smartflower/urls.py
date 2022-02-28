@@ -18,4 +18,6 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('smartpet.urls'))
+    # admin/ hariç tüm URL isteklerini base.urls karşılayacak..
 ]
