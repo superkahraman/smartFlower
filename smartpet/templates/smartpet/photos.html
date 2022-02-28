@@ -1,4 +1,13 @@
 {% extends "smartpet/main.html" %}
 {% block content %}
     <h1>Photos</h1>
+         <ul>
+    
+{% for petphoto_template in petphoto_view %}
+<li>
+<img src="{{petphoto_template.url}}" width="200" alt="{{petphoto_template.pet}}"/><br/>
+({{petphoto_template.pet}})
+</li>
+{% endfor %}
+</ul>
 {% endblock %}

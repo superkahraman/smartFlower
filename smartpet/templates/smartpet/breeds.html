@@ -1,4 +1,12 @@
 {% extends "smartpet/main.html" %}
 {% block content %}
     <h1>petBreeds</h1>
+     <ul>
+    
+{% for petbreed_template in petbreed_view %}
+<li>
+{{petbreed_template.name}} ({{petbreed_template.pettype}})
+</li>
+{% endfor %}
+</ul>
 {% endblock %}

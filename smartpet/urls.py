@@ -8,12 +8,12 @@ from django.views.generic.base import RedirectView
 
 urlpatterns = [
     path('', views.home, name="home_page"),
-    path('types/', views.pettype, name="urlTypes"),
-    path('breeds/', views.petbreed, name="urlBreeds"),
-    path('pets/', views.pet, name="urlPets"),
-    path('pet/<str:id>', views.pet, name="urlPet"),
-    path('photos/', views.photo, name="urlPhotos"),
-    path('photo/<str:id>', views.photo, name="urlPhoto"),
+    path('types/', views.pettypes, name="urlTypes"),
+    path('breeds/', views.petbreeds, name="urlBreeds"),
+    path('pets/', views.pets, name="urlPets"),
+    path('pet/<str:id>', views.pets, name="urlPet"),
+    path('photos/', views.photos, name="urlPhotos"),
+    path('photo/<str:id>', views.photos, name="urlPhoto"),
 
     # Static Files Definition
     path("favicon.ico", RedirectView.as_view(
