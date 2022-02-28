@@ -26,8 +26,9 @@ class petBreed(models.Model):  # "Scottish Fold, Jack Russel, Shark" etc.
 
 class Pet(models.Model):
     name = models.CharField(max_length=256)
-    type = models.ForeignKey(petType, on_delete=models.SET_NULL, null=True)
-    breed = models.ForeignKey(petBreed, on_delete=models.SET_NULL, null=True)
+    pettype = models.ForeignKey(petType, on_delete=models.SET_NULL, null=True)
+    petbreed = models.ForeignKey(
+        petBreed, on_delete=models.SET_NULL, null=True)
     color = models.CharField(max_length=256)
     birthday = models.DateField(null=True)
     isBarren = models.BooleanField(null=True)
@@ -38,13 +39,7 @@ class Pet(models.Model):
     # When Pet object created?
     created = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
-        return self.name
 
-
-class petPhotos:
+class petPhoto(models.Model):
     url = models.CharField(max_length=512, null=False)
     pet = models.ForeignKey(Pet, on_delete=models.SET_NULL, null=True)
-
-    def __str__(self):
-        return self.url

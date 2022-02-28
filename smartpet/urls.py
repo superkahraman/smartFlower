@@ -8,8 +8,8 @@ from django.views.generic.base import RedirectView
 
 urlpatterns = [
     path('', views.home, name="home_page"),
-    path('types/', views.type, name="urlTypes"),
-    path('breeds/', views.breed, name="urlBreeds"),
+    path('types/', views.pettype, name="urlTypes"),
+    path('breeds/', views.petbreed, name="urlBreeds"),
     path('pets/', views.pet, name="urlPets"),
     path('pet/<str:id>', views.pet, name="urlPet"),
     path('photos/', views.photo, name="urlPhotos"),
