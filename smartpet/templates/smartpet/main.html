@@ -14,14 +14,20 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+    <link
+      href="{% static '/assets/css/main.css' %}"
+      rel="stylesheet"    />
 </head>
 
 <body>
+{% include "smartpet/navigation-top.html" %}
+
+
 <!-- BEGIN block content -->
 {% block content %} {% endblock %}
 <!-- END block content -->
 
-{% include "smartpet/navigation.html" %}
+{% include "smartpet/navigation-bottom.html" %}
 
     <script
       src="{% static '/assets/js/bootstrap.bundle.min.js' %}"
