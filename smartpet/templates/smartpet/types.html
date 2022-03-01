@@ -1,11 +1,13 @@
 {% extends "smartpet/main.html" %}
+{% load static %}
+
 {% block content %}
     <h1>petTypes</h1>
     <ul>
     
 {% for pettype_template in pettype_view %}
 <li>
-{{pettype_template.name}}
+<img src="{% get_static_prefix %}assets/images/icons/{{pettype_template.name}}.svg" width="32" height="32" /> {{pettype_template.name}}
 </li>
 {% endfor %}
 </ul>

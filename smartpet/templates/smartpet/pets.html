@@ -1,10 +1,16 @@
 {% extends "smartpet/main.html" %}
+{% load static %}
+
+
 {% block content %}
-    <h1>Pets</h1>
+    <h1>Pets ()</h1>
          <ul>
     
 {% for pet_template in pet_view %}
 <li>
+
+
+<img src="{% get_static_prefix %}assets/images/icons/{{pet_template.pettype}}.svg" width="32" height="32">
 {{pet_template.name}} ({{pet_template.pettype}}, {{pet_template.petbreed}}) [{{pet_template.owner}}]
 </li>
 {% endfor %}
