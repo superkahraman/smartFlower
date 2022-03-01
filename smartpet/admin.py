@@ -1,3 +1,4 @@
+from dataclasses import fields
 from django.contrib import admin
 from .models import petType, petBreed, Pet, petPhoto
 # Register your models here.
@@ -6,7 +7,7 @@ admin.site.register(petType)
 
 
 # Custom model Admin (admin.py):
-# We can specify which database fields are visible in admin panel
+# We can specify which model fields are visible in admin panel
 
 
 class petBreedAdmin(admin.ModelAdmin):

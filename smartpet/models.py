@@ -4,6 +4,11 @@ from django.contrib.auth.models import User
 
 # # # # # # # # # # # # # # # # # # # # # # # # # #
 # smartPET models.
+#
+#   petType
+#   petBreed
+#   Pet
+#   petPhoto
 # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 
