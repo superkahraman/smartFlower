@@ -40,6 +40,9 @@ INSTALLED_APPS = [
 
     # My Apps
     'smartpet.apps.SmartpetConfig',
+
+    # Extensions - installed with pip3 / requirements.txt
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
