@@ -1,4 +1,4 @@
-# <img src="smartpet/static/assets/images/logo.svg" width="32" height="32" align="left">&nbsp; smartFlower ecosystem
+# <img src="smartpet/static/assets/images/logo.svg" width="32" height="32" align="left">smartFlower ecosystem
 
 
 ## Table of Contents
