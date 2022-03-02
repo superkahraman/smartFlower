@@ -22,5 +22,4 @@ each planet has own `Flutter` front-end and `Django` back-end applications.
 
 ***
 Project started at 02/28/2022 16:30 (GMT+3)
-##### Mesut Schwarz
-##### Coder
+##### Mesut Schwarz<br />Coder
