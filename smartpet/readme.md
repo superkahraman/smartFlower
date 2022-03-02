@@ -28,7 +28,7 @@
     - url
     - pet `'Pet'` :alien:
 
-```jinja
+```python
 from django.db import migrations, models
 from django.contrib.auth.models import User
 ```
