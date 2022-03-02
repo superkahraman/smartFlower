@@ -1,2 +1,32 @@
-# smartFlower Django App for backend
-<p>This application is goint to be a backend for smartFlower eco-system.</p><p>Project started at 02/28/2022 16:30 (GMT+3)</b>
+# smartFlower ecosystem
+
+## Table of Contents
+
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Generated-README-Example](#generated-readme-example)
+- [Contribution](#contribution)
+- [Test Instructions](#test-instructions)
+- [Licenses](#licenses)
+- [Contact Information](#contactin-formation)
+
+## Description
+smartFlower project will consist of two main planets:
+- **smartPET** for pet owners.
+- **smartVET** for vets.
+
+each planet has own `Flutter` front-end and `Django` back-end applications.
+
+## Usage
+
+###### ATTENTION: Latest release of Django should be installed on your system or virtual environment.
+
+- open terminal
+- just type: `python manage.py runserver`
+
+
+***
+Project started at 02/28/2022 16:30 (GMT+3)
+##### Mesut Schwarz
+##### Coder
