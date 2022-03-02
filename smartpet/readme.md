@@ -11,22 +11,22 @@
     - email
 - **Pet** for pets info. (Milkie,Dog,Boxer,Brown,22-06-2019,Barren,Pet Owner etc.....)
     - name
-    - pettype  `'petType' :alien:` 
-    - petbreed `'petBreed' :alien:`
+    - pettype  `'petType'` :alien:
+    - petbreed `'petBreed'` :alien:
     - color
     - birthday
     - isbarren
-    - owner `'User'`(Foreign Key)
+    - owner `'User'` :alien:
     - updated
     - created
 - **petType** (Cat,Dog,Fish,Bird,Snake etc.)
     - name
 - **petBreed** (each petBreed should have a petType)
     - name
-    - pettype `'petType'` (Foreign Key)
+    - pettype `'petType'` :alien:
 - **petPhoto** (photo urls for pets)
     - url
-    - pet `'Pet'` (Foreign Key)
+    - pet `'Pet'` :alien:
 
 
 ***
