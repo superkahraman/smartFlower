@@ -1,4 +1,4 @@
-# <img src="static/assets/images/logo.svg" width="32" height="32" align="left">smartPET back-end
+# :sunflower: smartPET back-end
 
 `smartPET` django application will be do all-off server-side things.
 
