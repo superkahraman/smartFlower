@@ -3,13 +3,7 @@
 ## Table of Contents
 
 - [Description](#description)
-- [Installation](#installation)
 - [Usage](#usage)
-- [Generated-README-Example](#generated-readme-example)
-- [Contribution](#contribution)
-- [Test Instructions](#test-instructions)
-- [Licenses](#licenses)
-- [Contact Information](#contactin-formation)
 
 ## Description
 smartFlower project will consist of two main planets:
