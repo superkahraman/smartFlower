@@ -3,7 +3,7 @@
 `smartPET` django application will be do all-off server-side things.
 
 ## models
-:alien: means Foreign Key
+:alien: = Foreign Key
 - **User** for pet owners information. It has still default fields.
     - username
     - first_name
