@@ -28,11 +28,14 @@
     - url
     - pet `'Pet'` :alien:
 
-```django
+```python
 from django.db import migrations, models
 from django.contrib.auth.models import User
 ```
 
+```shell
+some shell commands
+```
 ***
 Project started at 02/28/2022 16:30 (GMT+3)
 ##### Mesut Schwarz<br />Coder
