@@ -28,6 +28,10 @@
     - url
     - pet `'Pet'` :alien:
 
+```jinja
+from django.db import migrations, models
+from django.contrib.auth.models import User
+```
 
 ***
 Project started at 02/28/2022 16:30 (GMT+3)
