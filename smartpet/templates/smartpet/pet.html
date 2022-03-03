@@ -1,0 +1,25 @@
+{% extends "smartpet/main.html" %}
+{% load static %}
+
+
+
+{% block content %}
+
+    <h1>{{pet_view.name}} ({{pet_view.id}})</h1>
+    {# pet_photo.url None ya da False dönerse buraya default olarak views'dan gelen no_photo bilgisini bas #}
+<img src="{{ pet_photo.url|default:no_photo}}" width="200" />
+ <ul>
+ <li><strong>Type: </strong>{{pet_view.pettype}} <img src="{% get_static_prefix %}assets/images/icons/{{pet_view.pettype}}.svg" width="16" height="16" /></li>
+ <li><strong>Breed: </strong>{{pet_view.petbreed}}</li>
+ <li><strong>Color: </strong>{{pet_view.color}}</li>
+ <li><strong>Birthday: </strong>{{pet_view.birthday}}</li>
+ <li><strong>isBarren: </strong>{{pet_view.isBarren}}</li>
+ <li><strong>Owner: </strong>{{pet_view.owner}}</li>
+ <li><strong>Created: </strong>{{pet_view.created}}</li>
+ <li><strong>Last Modified: </strong>{{pet_view.updated}}</li>
+ <li><strong>Photo Object: </strong>{{pet_photo}}</li>
+ <li><strong>Photo.Url: </strong>{{pet_photo.url}}</li>
+
+ </ul>
+
+{% endblock %}

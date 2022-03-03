@@ -1,6 +1,9 @@
 # python3 manage.py runscript create_users
+
+import email
 import random
 from random import randrange
+
 from django.contrib.auth.models import User
 from django.db.models import Max
 from smartpet.models import Pet, petBreed, petType
@@ -27,7 +30,7 @@ mailextensions = mailextensions_str.split(",")
 
 
 # petTypes
-pettype_str = "Cat,Dog,Fish,Snake"
+pettype_str = "Cat,Dog,Fish,Snake,Horse"
 # "Cat,Dog,Fish,Snake,Rabbit,Bird,Iguana,Spider,Duck,Monkey"
 # Cat Breeds List
 catbreed_str = "Ragdoll,Exotic Shorthair,Maine Coon,Persian,British Shorthair,Devon Rex,Abyssinian,American Shorthair,Scottish Fold,Sphynx,Oriental,Siamese,Cornish Rex,Norwegian Forest Cat,Siberian,Birman,Russian Blue,Bengal,Tonkinese,Burmese,Ocicat"
@@ -37,15 +40,20 @@ dogbreed_str = "Retriever (Labrador),French Bulldog,German Shepherd Dog,Golden R
 fishbreed_str = "Hamsi,Lüfer,Zargana,Çinekop,Japon,Ciklet"
 # Snake Breeds List
 snakebreed_str = "Python,Cobra,Anaconda,Engerek,Chikichiki Çıngıraklı,Waterloo"
+# Horse Breeds List
+horsebreed_str = "Midilli,Arap,İngiliz,Asya"
 # Pet Names List
 petnames_str = "Bella,Kitty,Lily,Lilly,Charlie,Lucy,Leo,Milo,Jack,Nala,Sam,Simba,Chloe,Baby,Sadie,Ziggy,Princess,Salem,Sophie,Shadow,Izzy,Cleo,Boots,Loki,Daisy,Cooper,Missy,Oreo,Tiger,Lulu,Tucker,Jasmine,Jackson,Murphy,Pepper,Fiona,Jax,Frank,Romeo,Millie,Abby,Minnie,Olivia,Lola,Athena,Teddy,Ruby,Oscar,Bear,Moose,Pumpkin,Willow,Mittens,Coco,Penny,Sammy,Sammie,Theo,Kali,Bob,Clyde,Tigger,Buddy,Joey,Emma,Ollie,Toby,George,Marley,Bagheera,Belle,Binx,Boo,Ash,Scout,Gizmo,Louie,Ginger,Midnight,Mochi,Blue,Frankie,Rosie,Ella,Calvin,Lucky,Hazel,Thor,Gus,Maggie,Piper,Harley,Rocky,Peanut,Mimi,Kitten,Remy,Remi,Annie,Sunny,Layla,Leila,Riley,Walter"
 
 
 pettypes = pettype_str.split(",")
+
 catbreeds = catbreed_str.split(",")
 dogbreeds = dogbreed_str.split(",")
 fishbreeds = fishbreed_str.split(",")
 snakebreeds = snakebreed_str.split(",")
+horsebreeds = horsebreed_str.split(",")
+
 petnames = petnames_str.split(",")
 
 
@@ -81,7 +89,6 @@ print("Total: " + str(len(usernames)))
 
 # =======================================================================================================
 printtitle("Selecting Random User")
-
 # Select Random User.id
 
 
@@ -91,39 +98,78 @@ def user_random():
         pk = random.randint(1, max_id)
         randomuser = User.objects.filter(pk=pk).first()
         if randomuser:
-            return randomuser.id
+            return randomuser
+# randomuser = user_random()
+# print("randomuser : {user}[{id}] {first_name} {last_name} ({email})".format(
+#     user=randomuser, id=randomuser.id,
+#     username=randomuser.username, first_name=randomuser.first_name,
+#     last_name=randomuser.last_name, email=randomuser.email))
 
-
-print("Random User.id : " + str(user_random()))
 
 # =======================================================================================================
 # Creating petTypes
-printtitle("Creating petTypes (Cat,Dog,Fish,Snake etc.)")
+printtitle("Creating petTypes (Cat,Dog,Fish,Snake,Horse etc.)")
 for pettype in pettypes:
     created = petType.objects.get_or_create(name=pettype)
     print(created)
 
+
+def type_random():
+    max_id = petType.objects.all().aggregate(max_id=Max("id"))['max_id']
+    while True:
+        pk = random.randint(1, max_id)
+        randomtype = petType.objects.filter(pk=pk).first()
+        if randomtype:
+            return randomtype
+# randomtype = type_random()
+# print("randomtype : {type}[{id}]".format(
+#     type=randomtype, id=randomtype.id))
+
+
+# =======================================================================================================
+# Creating petBreeds
+printtitle("Creating petBreeds...")
+
+
+def createBreeds(pettype, petbreeds):
+    for petbreed in petbreeds:
+        pettypeObj = petType.objects.get(name=pettype)
+        created = petBreed.objects.get_or_create(
+            name=petbreed, defaults={"pettype": pettypeObj})
+        print(created)
+
+
+createBreeds("Cat", catbreeds)
+createBreeds("Dog", dogbreeds)
+createBreeds("Fish", fishbreeds)
+createBreeds("Snake", snakebreeds)
+createBreeds("Horse", horsebreeds)
+
+
+def breed_random():
+    max_id = petBreed.objects.all().aggregate(max_id=Max("id"))['max_id']
+    while True:
+        pk = random.randint(1, max_id)
+        randombreed = petBreed.objects.filter(
+            pk=pk, pettype=randomtype).first()
+        if randombreed:
+            return randombreed
+
+
+# randombreed = breed_random()
+# print("randombreed : {breed}[{id}]->{type}".format(
+#     breed=randombreed, id=randombreed.id, type=randomtype))
+
+
 # =======================================================================================================
 printtitle("Creating petnames...")
 for petname in petnames:
-    pettype = random.choice(pettypes)
-    if pettype == 'Cat':
-        petbreeds = catbreeds
-    elif pettype == 'Dog':
-        petbreeds = dogbreeds
-    elif pettype == 'Fish':
-        petbreeds = fishbreeds
-    elif pettype == 'Snake':
-        petbreeds = snakebreeds
+    print("-------")
+    randomtype = type_random()
+    randombreed = breed_random()
+    randomuser = user_random()
 
-    petbreed = random.choice(petbreeds)
-    owner = user_random()
-    print(petname + "," + pettype + "," + petbreed + "," + str(owner))
-
-    # b, created = petBreed.objects.get_or_create(
-    #     name=petbreed, defaults={'pettype': petType(name=pettype)})
-    # print(created)
-
-    # c = Pet(name=row[0], petbreed=b,
-    #         pettype=petType(id=1), owner=User(id=1))
-    # c.save()
+    c = Pet(name=petname, petbreed=randombreed,
+            pettype=randomtype, owner=randomuser)
+    c.save()
+    print(c)

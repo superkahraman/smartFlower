@@ -7,13 +7,13 @@ from django.contrib.staticfiles.storage import staticfiles_storage
 from django.views.generic.base import RedirectView
 
 urlpatterns = [
-    path('', views.home, name="home_page"),
-    path('types/', views.pettypes, name="urlTypes"),
-    path('breeds/', views.petbreeds, name="urlBreeds"),
-    path('pets/', views.pets, name="urlPets"),
-    path('pet/<str:id>', views.pets, name="urlPet"),
-    path('photos/', views.photos, name="urlPhotos"),
-    path('photo/<str:id>', views.photos, name="urlPhoto"),
+    path('', views.HomeView.as_view(), name="home_page"),
+    path('types/', views.petTypesView.as_view(), name="urlTypes"),
+    path('breeds/', views.petBreedsView.as_view(), name="urlBreeds"),
+    path('pets/', views.PetsView.as_view(), name="urlPets"),
+    path('pet/<int:id>', views.PetView2.as_view(), name="urlPet"),
+    path('photos/', views.PhotosView.as_view(), name="urlPhotos"),
+    path('photo/<str:id>', views.PhotosView.as_view(), name="urlPhoto"),
 
     # Static Files Definition
     path("favicon.ico", RedirectView.as_view(
