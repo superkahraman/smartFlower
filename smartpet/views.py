@@ -36,58 +36,26 @@ class PetsView(View):
 # id specified in urls like that smartpet.app/pet/id
 # we can get it as "id" variable together with "request" data.
 
-####################################################################
-# PetView v1 - Tries to get Pet object.
-# If Pet object does not exist, it cauces "error"
-#
 
-
-class PetView1(View):
-    def get(self, request, id):
-        pet = Pet.objects.get(id=id)
-        photo = petPhoto.objects.get(pet=id)
-        icerik = {'pet_view': pet, 'pet_photo': photo}
-        return render(request, 'smartpet/pet.html', icerik)
 ####################################################################
 # PetView v2 - Tries to get Pet object.
 # If Pet object does not exist, "object.filter(condition).first()" returns "None"
 #
 
-
-class PetView2(View):
+class PetView(View):
     def get(self, request, id):
         pet = Pet.objects.filter(id=id).first()
         if pet == None:
             print("No Pet!")
             icerik = {'error_text': "Pet not found."}
             return render(request, 'smartpet/error.html', icerik)
-        else:
-            # We need to know if there is no petPhoto what will show
-            # We are preparing nophoto information here.
-            nophoto = STATIC_URL + 'assets/images/ghost.png'
-            #
-            print("Pet is " + str(pet))
-            photo = petPhoto.objects.filter(pet=id).first()
-            icerik = {'pet_view': pet, 'pet_photo': photo, 'no_photo': nophoto}
-            # print(pet)
-            # print(photo)
-            return render(request, 'smartpet/pet.html', icerik)
-####################################################################
-# PetView v3 - Tries to get Pet object.
-# If Pet object does not exist, and .get method causes to error
-# We can do something via try-catch
-#
-
-
-class PetView3(View):
-    def get(self, request, id):
-        pet = Pet.objects.get(id=id)
-        photo = petPhoto.objects.get(pet=id)
-        icerik = {'pet_view': pet, 'pet_photo': photo}
-        print(pet)
-        print(photo)
+        print("Pet is " + str(pet))
+        photos = petPhoto.objects.filter(pet=id)
+        icerik = {'pet_view': pet, 'pet_photos': photos}
+        # print(pet)
+        print(photos)
+        print(icerik)
         return render(request, 'smartpet/pet.html', icerik)
-####################################################################
 
 
 class PhotosView(View):
@@ -95,3 +63,9 @@ class PhotosView(View):
         photos = petPhoto.objects.all()
         icerik = {'petphoto_view': photos}
         return render(request, 'smartpet/photos.html', icerik)
+
+
+class ErrorView(View):
+    def get(self, request):
+        icerik = {'error_text': "Bilinmeyen hata"}
+        return render(request, 'smartpet/error.html', icerik)

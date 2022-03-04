@@ -1,13 +1,24 @@
 {% extends "smartpet/main.html" %}
 {% load static %}
-
-
-
 {% block content %}
 
     <h1>{{pet_view.name}} ({{pet_view.id}})</h1>
-    {# pet_photo.url None ya da False dönerse buraya default olarak views'dan gelen no_photo bilgisini bas #}
-<img src="{{ pet_photo.url|default:no_photo}}" width="200" />
+
+{% comment %} Photo Check {% endcomment %}
+    {% if not pet_photos %}
+        <img src="{% get_static_prefix %}assets/images/ghost.png"  />
+    {% else %}
+    {% comment %} If we have "pet_photos" query set. {% endcomment %}
+    {% comment %} Lets process for each item. {% endcomment %}
+        {% for photo in pet_photos %}
+            <img src="{{ photo.url}}" width="200" />
+        {% endfor %}
+    {% endif %}
+
+
+
+
+
  <ul>
  <li><strong>Type: </strong>{{pet_view.pettype}} <img src="{% get_static_prefix %}assets/images/icons/{{pet_view.pettype}}.svg" width="16" height="16" /></li>
  <li><strong>Breed: </strong>{{pet_view.petbreed}}</li>

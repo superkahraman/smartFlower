@@ -8,11 +8,12 @@ from django.views.generic.base import RedirectView
 
 urlpatterns = [
     path('', views.HomeView.as_view(), name="home_page"),
-    path('types/', views.petTypesView.as_view(), name="urlTypes"),
-    path('breeds/', views.petBreedsView.as_view(), name="urlBreeds"),
-    path('pets/', views.PetsView.as_view(), name="urlPets"),
-    path('pet/<int:id>', views.PetView2.as_view(), name="urlPet"),
-    path('photos/', views.PhotosView.as_view(), name="urlPhotos"),
+    path('types', views.petTypesView.as_view(), name="urlTypes"),
+    path('breeds', views.petBreedsView.as_view(), name="urlBreeds"),
+    path('pets', views.PetsView.as_view(), name="urlPets"),
+    path('pet/<int:id>', views.PetView.as_view(), name="urlPet"),
+    path('pet/', views.ErrorView.as_view(), name="urlError"),
+    path('photos', views.PhotosView.as_view(), name="urlPhotos"),
     path('photo/<str:id>', views.PhotosView.as_view(), name="urlPhoto"),
 
     # Static Files Definition
