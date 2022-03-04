@@ -11,7 +11,6 @@ urlpatterns = [
     path('types', views.petTypesView.as_view(), name="urlTypes"),
     path('breeds', views.petBreedsView.as_view(), name="urlBreeds"),
     path('pets/', views.PetsView.as_view(), name="urlPets"),
-    path('pets/json', views.PetsJSON.as_view(), name="urlPetsJSON"),
     path('pet/<int:id>', views.PetView.as_view(), name="urlPet"),
     path('pet/', views.ErrorView.as_view(), name="urlError"),
     path('photos', views.PhotosView.as_view(), name="urlPhotos"),
