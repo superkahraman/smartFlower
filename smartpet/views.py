@@ -7,10 +7,16 @@ from django.views import View
 # Create your views here.
 
 
+#########################################################
+# Home Page                                             #
+
 class HomeView(View):
     def get(self, request):
         return render(request, 'smartpet/index.html')
 
+
+#########################################################
+# petTypes                                              #
 
 class petTypesView(View):
     def get(self, request):
@@ -19,12 +25,18 @@ class petTypesView(View):
         return render(request, 'smartpet/types.html', icerik)
 
 
+#########################################################
+# petBreeds                                             #
+
 class petBreedsView(View):
     def get(self, request):
         petbreeds = petBreed.objects.all()
         icerik = {'petbreed_view': petbreeds}
         return render(request, 'smartpet/breeds.html', icerik)
 
+
+#########################################################
+# Pets                                                  #
 
 class PetsView(View):
     def get(self, request):
@@ -33,23 +45,14 @@ class PetsView(View):
         return render(request, 'smartpet/pets.html', icerik)
 
 
-class PetsJSON(View):
-    def get(self, request):
-        pets = Pet.objects.all()
-        icerik = {'pet_view': pets}
-        #liste = []
-
-        return render(request, 'smartpet/pets-json.html', icerik)
-
+#########################################################
+# PetView v2
+# Tries to get Pet object.
+# If Pet object does not exist, "object.filter(condition).first()" returns "None"
+#
 # We have or dont have "Pet.id"
 # id specified in urls like that smartpet.app/pet/id
 # we can get it as "id" variable together with "request" data.
-
-
-####################################################################
-# PetView v2 - Tries to get Pet object.
-# If Pet object does not exist, "object.filter(condition).first()" returns "None"
-#
 
 class PetView(View):
     def get(self, request, id):
@@ -67,12 +70,18 @@ class PetView(View):
         return render(request, 'smartpet/pet.html', icerik)
 
 
+#########################################################
+# Photos                                                #
+
 class PhotosView(View):
     def get(self, request):
         photos = petPhoto.objects.all()
         icerik = {'petphoto_view': photos}
         return render(request, 'smartpet/photos.html', icerik)
 
+
+#########################################################
+# Error                                                 #
 
 class ErrorView(View):
     def get(self, request):
