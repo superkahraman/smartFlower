@@ -1,8 +1,14 @@
-{% extends "smartpet/main.html" %}
-{% load static %}
 
 
-{% block content %}
+{% for pet_template in pet_view|dictsort:"name" %}
+{{pet_template}},
+{% endfor %}
+
+
+
+
+
+{% comment %} {% block content %}
     <h1>Pets ()</h1>
          <ul>
     
@@ -18,4 +24,4 @@
 </li>
 {% endfor %}
 </ul>
-{% endblock %}
+{% endblock %} {% endcomment %}

@@ -32,6 +32,15 @@ class PetsView(View):
         icerik = {'pet_view': pets}
         return render(request, 'smartpet/pets.html', icerik)
 
+
+class PetsJSON(View):
+    def get(self, request):
+        pets = Pet.objects.all()
+        icerik = {'pet_view': pets}
+        #liste = []
+
+        return render(request, 'smartpet/pets-json.html', icerik)
+
 # We have or dont have "Pet.id"
 # id specified in urls like that smartpet.app/pet/id
 # we can get it as "id" variable together with "request" data.
