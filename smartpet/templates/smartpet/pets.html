@@ -6,10 +6,9 @@
     <h1>Pets ()</h1>
          <ul>
     
-{% for pet_template in pet_view|dictsort:"name" %}
+{% for pet_template in pet_view|dictsortreversed:"updated" %} 
+{% comment %} sort by last updated time. newest updated first...  {% endcomment %}
 <li>
-
-
 <img src="{% get_static_prefix %}assets/images/icons/{{pet_template.pettype}}.svg" width="32" height="32">
 <a href="{% url 'urlPet' pet_template.id %}"">
 {{pet_template.name}} 
