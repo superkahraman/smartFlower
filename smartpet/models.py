@@ -4,11 +4,10 @@ from django.contrib.auth.models import User
 
 # # # # # # # # # # # # # # # # # # # # # # # # # #
 # smartPET models.
-#
-#   petType
-#   petBreed
-#   Pet
-#   petPhoto
+# ?   petType
+# ?   petBreed
+# ?   Pet
+# ?   petPhoto
 # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 
@@ -28,6 +27,9 @@ class petBreed(models.Model):  # "Scottish Fold, Jack Russel, Shark" etc.
     def __str__(self):
         return self.name
 
+# TODO: Pet.pettype should come from petBreed.pettype \
+# TODO: (We need "Unknown" petBreed for each petType)
+
 
 class Pet(models.Model):
     name = models.CharField(max_length=256)
@@ -39,7 +41,7 @@ class Pet(models.Model):
     isBarren = models.BooleanField(null=True)
     owner = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 
-    # When Pet object updated?
+    # When created !Pet object updated?z
     updated = models.DateTimeField(auto_now=True)
     # When Pet object created?
     created = models.DateTimeField(auto_now_add=True)
