@@ -1,6 +1,6 @@
 from email import message
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.utils.http import urlencode
 from smartflower.settings import STATIC_URL
@@ -18,6 +18,7 @@ from django.views import View
 # My little funcs.
 
 
+# This function writes colored debug message to Terminal
 def myprint(mymessage):
     print(Fore.CYAN + ">>> ", end="")
     print(mymessage)
