@@ -15,9 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib.auth import views as auth_views
+from django.contrib.auth import urls
+from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls'), name="urlHesap"),
+    path('bye/', LogoutView.as_view(), name='bye'),
     path('', include('smartpet.urls'))
     # admin/ hariç tüm URL isteklerini base.urls karşılayacak..
 ]

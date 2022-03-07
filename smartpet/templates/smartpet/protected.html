@@ -1,9 +1,10 @@
 {% extends "smartpet/main.html" %}
 {% block content %}
-    <h1>Hello from smartPET Alpha</h1>
+    <h1>Welcome to protected page</h1>
 
 
 {% if user.is_authenticated %}
+{{protected_message}}
 <p>Authenticated as
 <pre>
 username : {{user.username}}

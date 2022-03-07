@@ -1,21 +1,15 @@
+{% extends "smartpet/main.html" %}
+{% load static %}
 
 
-{% for pet_template in pet_view|dictsort:"name" %}
-{{pet_template}},
-{% endfor %}
+{% block content %}
+    <h1>My Pets ()</h1>
 
 
-
-
-
-{% comment %} {% block content %}
-    <h1>Pets ()</h1>
          <ul>
-    
-{% for pet_template in pet_view|dictsort:"name" %}
+
+{% for pet_template in mypets_view %} 
 <li>
-
-
 <img src="{% get_static_prefix %}assets/images/icons/{{pet_template.pettype}}.svg" width="32" height="32">
 <a href="{% url 'smartpet:urlPet' pet_template.id %}"">
 {{pet_template.name}} 
@@ -24,4 +18,6 @@
 </li>
 {% endfor %}
 </ul>
-{% endblock %} {% endcomment %}
+
+
+{% endblock %}

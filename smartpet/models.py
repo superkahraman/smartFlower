@@ -1,6 +1,9 @@
 from django.db import migrations, models
 from django.contrib.auth.models import User
 
+# TODO: Pet.pettype should come from petBreed.pettype \
+# TODO: (We need "Unknown" petBreed for each petType)
+
 
 # # # # # # # # # # # # # # # # # # # # # # # # # #
 # smartPET models.
@@ -26,9 +29,6 @@ class petBreed(models.Model):  # "Scottish Fold, Jack Russel, Shark" etc.
 
     def __str__(self):
         return self.name
-
-# TODO: Pet.pettype should come from petBreed.pettype \
-# TODO: (We need "Unknown" petBreed for each petType)
 
 
 class Pet(models.Model):

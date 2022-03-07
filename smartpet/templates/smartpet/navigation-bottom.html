@@ -1,9 +1,13 @@
 
     <div class="btn-group">
     <a href="/" class="btn btn-primary">Home</a>
-    <a href="{% url 'urlTypes' %}" class="btn btn-success">petTypes</a>
-    <a href="{% url 'urlBreeds' %}" class="btn btn-warning">petBreeds</a>
-    <a href="{% url 'urlPets' %}" class="btn btn-primary">Pets</a>
-    <a href="{% url 'urlPhotos' %}" class="btn btn-secondary">Photos</a>
+    <a href="{% url 'smartpet:urlTypes' %}" class="btn btn-success">petTypes</a>
+    <a href="{% url 'smartpet:urlBreeds' %}" class="btn btn-warning">petBreeds</a>
+    <a href="{% url 'smartpet:urlPets' %}" class="btn btn-primary">Pets</a>
+    <a href="{% url 'smartpet:urlPhotos' %}" class="btn btn-secondary">Photos</a>
     <a href="/admin/" class="btn btn-danger"><strong>admin</strong></a>
+    <a href="{% url 'smartpet:urlMyPets' %}" class="btn btn-warning">My Pets</a>
+    <a href="{% url 'smartpet:urlProtected' %}" class="btn btn-success">protected page</a>
+    <a href="{% url 'smartpet:urlProtectedAnother' %}" class="btn btn-success">protected2 page</a>
+
 </div>
