@@ -9,29 +9,26 @@ from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 import html
+from django.views import View
 
 from colorama import Fore, Back, Style
 
-
-from django.views import View
-
 # My little funcs.
-
-
 # This function writes colored debug message to Terminal
+
+
 def myprint(mymessage):
     print(Fore.CYAN + ">>> ", end="")
     print(mymessage)
     print(Style.RESET_ALL, end="")
 
-
 # Create your views here.
-
 
 #########################################################
 # Home Page                                             #
 
-class HomeView(View):
+
+class HomePageView(View):
     def get(self, request):
         return render(request, 'smartpet/index.html')
 
@@ -156,7 +153,11 @@ class MyPetsView(View):
             pets = Pet.objects.filter(owner=petowner.id)
             myprint("Pet Owner: " + petowner.username)
             myprint(pets)
-            icerik = {'mypets_view': pets}
+            if not pets:
+                messagetext = "You dont have any Pet(s).."
+                # This data for HTML alert-div
+                messagedata = {'type': 'danger', 'message_text': messagetext}
+            icerik = {'mypets_view': pets, 'message': messagedata}
             return render(request, 'smartpet/my_pets.html', icerik)
         else:
             # if user not logged in, go to login page.

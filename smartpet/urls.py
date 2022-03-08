@@ -11,7 +11,7 @@ from django.contrib.staticfiles.storage import staticfiles_storage
 from django.views.generic.base import RedirectView
 app_name = 'smartpet'
 urlpatterns = [
-    path('', views.HomeView.as_view(), name="urlHome"),
+    path('', views.HomePageView.as_view(), name="urlHome"),
     path('types', views.petTypesView.as_view(), name="urlTypes"),
     path('breeds', views.petBreedsView.as_view(), name="urlBreeds"),
     path('pets/', views.PetsView.as_view(), name="urlPets"),

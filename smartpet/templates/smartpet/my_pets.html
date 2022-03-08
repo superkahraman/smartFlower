@@ -5,17 +5,19 @@
 {% block content %}
     <h1>My Pets ()</h1>
 
+{% if message %}
+<div class="alert alert-{{message.type}}" role="alert">
+{{message.message_text|safe}}
+</div>
+{% endif %} 
 
-         <ul>
-
+<ul>
 {% for pet_template in mypets_view %} 
-<li>
-<img src="{% get_static_prefix %}assets/images/icons/{{pet_template.pettype}}.svg" width="32" height="32">
-<a href="{% url 'smartpet:urlPet' pet_template.id %}"">
-{{pet_template.name}} 
-</a>
-({{pet_template.pettype}}, {{pet_template.petbreed}}) [{{pet_template.owner}}]
-</li>
+    <li>
+    <img src="{% get_static_prefix %}assets/images/icons/{{pet_template.pettype}}.svg" width="32" height="32">
+    <a href="{% url 'smartpet:urlPet' pet_template.id %}"">{{pet_template.name}}</a>
+    ({{pet_template.pettype}}, {{pet_template.petbreed}}) [{{pet_template.owner}}]
+    </li>
 {% endfor %}
 </ul>
 

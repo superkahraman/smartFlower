@@ -2,7 +2,16 @@
 {% load static %}
 {% block content %}
 
-    <h1>{{pet_view.name}} ({{pet_view.id}})</h1>
+<div>
+{% comment %} BEGIN Edit Pet Button {% endcomment %}
+{% if user.username|stringformat:'s' == pet_view.owner|stringformat:'s' %}
+<a href="#edit"><img src="{% static '/assets/images/icon_edit.png' %}" alt="Edit Pet" style="float:left"/></a>
+{% endif %}
+{% comment %} END Edit Pet Button {% endcomment %}
+<h1>{{pet_view.name}} ({{pet_view.id}})</h1>
+
+</div>
+
 
 {% comment %} Photo Check {% endcomment %}
     {% if not pet_photos %}
@@ -10,14 +19,10 @@
     {% else %}
     {% comment %} If we have "pet_photos" query set. {% endcomment %}
     {% comment %} Lets process for each item. {% endcomment %}
-        {% for photo in pet_photos %}
-            <img src="{{ photo.url}}" width="200" />
-        {% endfor %}
+    {% for photo in pet_photos %}
+        <img src="{{ photo.url}}" width="200" />
+    {% endfor %}
     {% endif %}
-
-
-
-
 
  <ul>
  <li><strong>Type: </strong>{{pet_view.pettype}} <img src="{% get_static_prefix %}assets/images/icons/{{pet_view.pettype}}.svg" width="16" height="16" /></li>
@@ -28,8 +33,8 @@
  <li><strong>Owner: </strong>{{pet_view.owner}}</li>
  <li><strong>Created: </strong>{{pet_view.created}}</li>
  <li><strong>Last Modified: </strong>{{pet_view.updated}}</li>
- <li><strong>Photo Object: </strong>{{pet_photo}}</li>
- <li><strong>Photo.Url: </strong>{{pet_photo.url}}</li>
+ <li><strong>Photo Object: </strong>{{pet_photos}}</li>
+ <li><strong>Photo.Url: </strong>{% for photo in pet_photos %} {{ photo.url}}  {% endfor %}</li>
 
  </ul>
 

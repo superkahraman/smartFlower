@@ -33,8 +33,19 @@ from django.db import migrations, models
 from django.contrib.auth.models import User
 ```
 
-```shell
-some shell commands
+```
+TODO :
+
+* Pet'in petType'ı petBreed'ten çek. Bir Pet için petBreed belirtilmemiş/bilinmiyor ise. her petType için default gelecek "Unknown" ya da "Empty" bir petBreed tanımla.
+
+* User modeli kesinlikle yeniden yap. Mevcut User model'in özellikle username ve email fieldları çok sorunlu.
+Konuyla ilgili bilgi için aşağıdaki linkleri kullan.
+
+https://simpleisbetterthancomplex.com/article/2021/07/08/what-you-should-know-about-the-django-user-model.html
+https://stackoverflow.com/questions/48030567/how-to-customize-username-validation
+https://www.codingforentrepreneurs.com/blog/how-to-create-a-custom-django-user-model/
+https://www.youtube.com/watch?v=HshbjK1vDtY&t=2s
+
 ```
 ***
 Project started at 02/28/2022 16:30 (GMT+3)
