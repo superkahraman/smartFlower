@@ -1,7 +1,7 @@
 from email import message
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
-from django.urls import reverse
+from django.urls import include, reverse
 from django.utils.http import urlencode
 from smartflower.settings import STATIC_URL
 from smartpet.models import Pet, petBreed, petPhoto, petType
@@ -10,17 +10,11 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 import html
 from django.views import View
-
-from colorama import Fore, Back, Style
+from smartpet.config import *
 
 # My little funcs.
 # This function writes colored debug message to Terminal
 
-
-def myprint(mymessage):
-    print(Fore.CYAN + ">>> ", end="")
-    print(mymessage)
-    print(Style.RESET_ALL, end="")
 
 # Create your views here.
 
@@ -30,6 +24,7 @@ def myprint(mymessage):
 
 class HomePageView(View):
     def get(self, request):
+        print(debug_level)
         return render(request, 'smartpet/index.html')
 
 
@@ -57,44 +52,81 @@ class petBreedsView(View):
 # Pets    (Shows all Pets and Search Pets)         #
 
 def allPets(request):  # It shows all Pets
+    lp("[PetsView](allPets) starting...")
     pets = Pet.objects.all()
+    lp(pets)
     icerik = {'pet_view': pets}
+    lp("[PetsView](allPets) ending...")
+    return render(request, 'smartpet/pets.html', icerik)
+
+
+def searchPets(request, searched_name):
+    lp("[PetsView](searchPets) starting..")
+
+    # "name" field contains searched_name
+    pets = Pet.objects.filter(name__contains=str(searched_name))
+    if pets:
+        lp("[PetsView](searchPets) found something for '"+searched_name+"'")
+        lp(pets)
+        lp("[PetsView](searchPets) creating 'info' message...")
+        messagetext = "<strong>" + searched_name + "</strong> için sonuçlar"
+        # This data for HTML alert-div
+        messagedata = {'type': 'info', 'message_text': messagetext}
+    if not pets:
+        lp("[PetsView](searchPets) NOT found for '"+searched_name+"'")
+        lp("[PetsView](searchPets) creating 'danger' message...")
+
+        messagetext = "<strong>'" + searched_name + "'</strong> bulunamadı."
+        # This data for HTML alert-div
+        messagedata = {'type': 'danger', 'message_text': messagetext}
+        # We send Pets data and message for search results.
+    icerik = {'pet_view': pets, 'message': messagedata}
+    lp("[PetsView](searchPets) returning...")
     return render(request, 'smartpet/pets.html', icerik)
 
 
 class PetsView(View):
     def get(self, request):  # Default method is "get"
         # Returns allPets function
-        return allPets(request)
+        lp("[PetsView](GET) starting...")
+        searched_name = request.session.get('searched_pet', False)
+        lp("[PetsView](GET) searched_name=session['searched_pet']")
+        lp("[PetsView](GET) searched_name=='" + str(searched_name)+"'")
 
-# Pet Search things.
+        if searched_name:
+            lp("[PetsView](GET)<searched_name> condition starting...")
+            lp("[PetsView](GET) deleting session['searched_pet']")
+            del(request.session['searched_pet'])
+            lp(
+                "[PetsView](GET)<searched_name> searchPets('"+searched_name + "')")
+            return searchPets(request, searched_name)
+        else:
+            searched_name = None
+            lp("[PetsView](GET) session['searched_pet'] not found ")
+            lp("[PetsView](GET) return allPets(request)")
+            return allPets(request)
 
     def post(self, request):  # If FORM posted to this view.
-        myprint("Post geldi")
+        lp("[PetsView](POST) received.")
         # searchPetName is form's input name
         searched_name = request.POST.get('searchPetName')
         # html.escape is important!!
         # if we dont do escape, visitor send anything via form.
         searched_name = html.escape(searched_name)
+        lp("[PetsView](POST) searched_name=='" + searched_name + "'")
+
+        # Redirect searched_name to Session's "searched_pet"
+        # We gonna process search result as GET (not POST)
 
         if not searched_name:
-            myprint("Formu boş gönderdin kro")
-            return allPets(request)
+            lp("[PetsView](POST) searched_name is 'None'")
+            lp("[PetsView](POST) is redirecting to (GET).")
+            return redirect(request.path)
         if searched_name:
-            myprint("We have FORM searchPetName data : " + searched_name)
-            # "name" field contains searched_name
-            pets = Pet.objects.filter(name__contains=str(searched_name))
-            if pets:
-                messagetext = "<strong>" + searched_name + "</strong> için sonuçlar"
-                # This data for HTML alert-div
-                messagedata = {'type': 'info', 'message_text': messagetext}
-            if not pets:
-                messagetext = "<strong>'" + searched_name + "'</strong> bulunamadı."
-                # This data for HTML alert-div
-                messagedata = {'type': 'danger', 'message_text': messagetext}
-            # We send Pets data and message for search results.
-            icerik = {'pet_view': pets, 'message': messagedata}
-            return render(request, 'smartpet/pets.html', icerik)
+            request.session['searched_pet'] = searched_name
+            lp("[PetsView](POST) session['searched_pet']='" + searched_name+"'")
+            lp("[PetsView](POST) is redirecting to (GET).")
+            return redirect(request.path)  # Redirect to itself for GET
 
 
 #########################################################
@@ -106,19 +138,20 @@ class PetsView(View):
 # id specified in urls like that smartpet.app/pet/id
 # we can get it as "id" variable together with "request" data.
 
-class PetView(View):
+
+class SinglePetView(View):
     def get(self, request, id):
         pet = Pet.objects.filter(id=id).first()
         if pet == None:
-            myprint("No Pet!")
+            lp("No Pet!")
             icerik = {'error_text': "Pet not found."}
             return render(request, 'smartpet/error.html', icerik)
-        myprint("Pet is " + str(pet))
+        lp("Pet is " + str(pet))
         photos = petPhoto.objects.filter(pet=id)
         icerik = {'pet_view': pet, 'pet_photos': photos}
         # print(pet)
-        myprint(photos)
-        myprint(icerik)
+        lp(photos)
+        lp(icerik)
         return render(request, 'smartpet/pet.html', icerik)
 
 
@@ -148,11 +181,12 @@ class MyPetsView(View):
     def get(self, request):
         # if the user logged in:
         if request.user.is_authenticated:
-            myprint("User: " + request.user.username)
+            lp("User: " + request.user.username)
             petowner = User.objects.get(username=request.user.username)
             pets = Pet.objects.filter(owner=petowner.id)
-            myprint("Pet Owner: " + petowner.username)
-            myprint(pets)
+            lp("Pet Owner: " + petowner.username)
+            lp(pets)
+            messagedata = None
             if not pets:
                 messagetext = "You dont have any Pet(s).."
                 # This data for HTML alert-div
@@ -161,7 +195,7 @@ class MyPetsView(View):
             return render(request, 'smartpet/my_pets.html', icerik)
         else:
             # if user not logged in, go to login page.
-            myprint("Please Login")
+            lp("Please Login")
             loginurl = reverse('login')+'?'+urlencode({'next': request.path})
             return HttpResponseRedirect(loginurl)
 
