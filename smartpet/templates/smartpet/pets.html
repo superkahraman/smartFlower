@@ -3,6 +3,11 @@
 {% block content %}
 <h1>Pets ()</h1>
 
+{% for message in messages  %}
+{{message}} - 
+{% endfor %}
+
+
 {% comment %} BEGIN Pet search form {% endcomment %}
 <form action="" method="post" name="SearchPets" class="form-check">
     {% csrf_token %}

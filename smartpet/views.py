@@ -1,19 +1,17 @@
 #from email import message
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect  # ,HttpResponse
 from django.shortcuts import render, redirect
-from django.urls import include, reverse
+from django.urls import reverse  # , include
 from django.utils.http import urlencode
 from smartflower.settings import STATIC_URL
 from smartpet.models import Pet, petBreed, petPhoto, petType
 from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+# from django.contrib.auth.decorators import login_required
 import html
 from django.views import View
 from smartpet.config import *
-
-
-# Create your views here.
 
 #########################################################
 # Home Page                                             #
@@ -21,7 +19,6 @@ from smartpet.config import *
 
 class HomePageView(View):
     def get(self, request):
-        print(debug_level)
         return render(request, 'smartpet/index.html')
 
 
@@ -66,6 +63,8 @@ def searchPets(request, searched_name):
         xx("[PetsView](searchPets) found something for '"+searched_name+"'")
         xx(pets)
         xx("[PetsView](searchPets) creating 'info' message...")
+        messages.info(request, "Results...")
+        messages.error(request, "Erol..")
         messagetext = "<strong>" + searched_name + "</strong> için sonuçlar"
         # This data for HTML alert-div
         messagedata = {'type': 'info', 'message_text': messagetext}
@@ -138,18 +137,22 @@ class PetsView(View):
 
 class SinglePetView(View):
     def get(self, request, id):
-        pet = Pet.objects.filter(id=id).first()
-        if pet == None:
-            xx("No Pet!")
-            icerik = {'error_text': "Pet not found."}
+        try:
+            pet = Pet.objects.filter(id=id).first()
+            if pet == None:
+                xx("No Pet!")
+                icerik = {'error_text': "Pet not found."}
+                return render(request, 'smartpet/error.html', icerik)
+            xx("Pet is " + str(pet))
+            photos = petPhoto.objects.filter(pet=id)
+            icerik = {'pet_view': pet, 'pet_photos': photos}
+            # print(pet)
+            xx(photos)
+            xx(icerik)
+            return render(request, 'smartpet/pet.html', icerik)
+        except:
+            icerik = {'error_text': "hatalı sollama"}
             return render(request, 'smartpet/error.html', icerik)
-        xx("Pet is " + str(pet))
-        photos = petPhoto.objects.filter(pet=id)
-        icerik = {'pet_view': pet, 'pet_photos': photos}
-        # print(pet)
-        xx(photos)
-        xx(icerik)
-        return render(request, 'smartpet/pet.html', icerik)
 
 
 #########################################################

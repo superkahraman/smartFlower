@@ -42,3 +42,238 @@
 2022-03-13 20:42:33.911975 <QuerySet [<Pet: Peanut>]>
 2022-03-13 20:42:33.912973 [PetsView](searchPets) creating 'info' message...
 2022-03-13 20:42:33.912973 [PetsView](searchPets) returning...
+2022-03-14 12:46:04.491153 [PetsView](GET) starting...
+2022-03-14 12:46:04.493134 [PetsView](GET) searched_name=session['searched_pet']
+2022-03-14 12:46:04.494131 [PetsView](GET) searched_name=='False'
+2022-03-14 12:46:04.495142 [PetsView](GET) session['searched_pet'] not found 
+2022-03-14 12:46:04.496125 [PetsView](GET) return allPets(request)
+2022-03-14 12:46:04.497123 [PetsView](allPets) starting...
+2022-03-14 12:46:04.501111 <QuerySet [<Pet: Bella>, <Pet: Kitty>, <Pet: Lily>, <Pet: Lilly>, <Pet: Charlie>, <Pet: Lucy>, <Pet: Leo>, <Pet: Milo>, <Pet: Jack>, <Pet: Nala>, <Pet: Sam>, <Pet: Simba>, <Pet: Chloe>, <Pet: Baby>, <Pet: Sadie>, <Pet: Ziggy>, <Pet: Princess>, <Pet: Salem>, <Pet: Sophie>, <Pet: Shadow>, '...(remaining elements truncated)...']>
+2022-03-14 12:46:04.502110 [PetsView](allPets) ending...
+2022-03-14 12:49:26.487233 Pet is Walter
+2022-03-14 12:49:26.491218 <QuerySet []>
+2022-03-14 12:49:26.493214 {'pet_view': <Pet: Walter>, 'pet_photos': <QuerySet []>}
+2022-03-14 12:50:06.005967 [PetsView](GET) starting...
+2022-03-14 12:50:06.008959 [PetsView](GET) searched_name=session['searched_pet']
+2022-03-14 12:50:06.009957 [PetsView](GET) searched_name=='False'
+2022-03-14 12:50:06.010954 [PetsView](GET) session['searched_pet'] not found 
+2022-03-14 12:50:06.011952 [PetsView](GET) return allPets(request)
+2022-03-14 12:50:06.012951 [PetsView](allPets) starting...
+2022-03-14 12:50:06.016938 <QuerySet [<Pet: Bella>, <Pet: Kitty>, <Pet: Lily>, <Pet: Lilly>, <Pet: Charlie>, <Pet: Lucy>, <Pet: Leo>, <Pet: Milo>, <Pet: Jack>, <Pet: Nala>, <Pet: Sam>, <Pet: Simba>, <Pet: Chloe>, <Pet: Baby>, <Pet: Sadie>, <Pet: Ziggy>, <Pet: Princess>, <Pet: Salem>, <Pet: Sophie>, <Pet: Shadow>, '...(remaining elements truncated)...']>
+2022-03-14 12:50:06.017961 [PetsView](allPets) ending...
+2022-03-14 12:50:40.638731 Please Login
+2022-03-14 12:50:45.522263 User: mike
+2022-03-14 12:50:45.524258 Pet Owner: mike
+2022-03-14 12:50:45.526290 <QuerySet []>
+2022-03-14 13:06:37.715504 [PetsView](GET) starting...
+2022-03-14 13:06:37.720495 [PetsView](GET) searched_name=session['searched_pet']
+2022-03-14 13:06:37.720495 [PetsView](GET) searched_name=='False'
+2022-03-14 13:06:37.721492 [PetsView](GET) session['searched_pet'] not found 
+2022-03-14 13:06:37.722489 [PetsView](GET) return allPets(request)
+2022-03-14 13:06:37.723508 [PetsView](allPets) starting...
+2022-03-14 13:06:37.727055 <QuerySet [<Pet: Bella>, <Pet: Kitty>, <Pet: Lily>, <Pet: Lilly>, <Pet: Charlie>, <Pet: Lucy>, <Pet: Leo>, <Pet: Milo>, <Pet: Jack>, <Pet: Nala>, <Pet: Sam>, <Pet: Simba>, <Pet: Chloe>, <Pet: Baby>, <Pet: Sadie>, <Pet: Ziggy>, <Pet: Princess>, <Pet: Salem>, <Pet: Sophie>, <Pet: Shadow>, '...(remaining elements truncated)...']>
+2022-03-14 13:06:37.727055 [PetsView](allPets) ending...
+2022-03-14 13:06:40.480549 [PetsView](POST) received.
+2022-03-14 13:06:40.481547 [PetsView](POST) searched_name=='er'
+2022-03-14 13:06:40.485536 [PetsView](POST) session['searched_pet']='er'
+2022-03-14 13:06:40.486534 [PetsView](POST) is redirecting to (GET).
+2022-03-14 13:06:40.498529 [PetsView](GET) starting...
+2022-03-14 13:06:40.508505 [PetsView](GET) searched_name=session['searched_pet']
+2022-03-14 13:06:40.509503 [PetsView](GET) searched_name=='er'
+2022-03-14 13:06:40.511497 [PetsView](GET)<searched_name> condition starting...
+2022-03-14 13:06:40.512494 [PetsView](GET) deleting session['searched_pet']
+2022-03-14 13:06:40.512494 [PetsView](GET)<searched_name> searchPets('er')
+2022-03-14 13:06:40.513491 [PetsView](searchPets) starting..
+2022-03-14 13:06:40.515648 [PetsView](searchPets) found something for 'er'
+2022-03-14 13:06:40.516649 <QuerySet [<Pet: Cooper>, <Pet: Tiger>, <Pet: Tucker>, <Pet: Pepper>, <Pet: Tigger>, <Pet: Bagheera>, <Pet: Ginger>, <Pet: Piper>, <Pet: Walter>]>
+2022-03-14 13:06:40.517660 [PetsView](searchPets) creating 'info' message...
+2022-03-14 13:06:40.518644 [PetsView](searchPets) returning...
+2022-03-14 13:15:06.842178 [PetsView](GET) starting...
+2022-03-14 13:15:06.855146 [PetsView](GET) searched_name=session['searched_pet']
+2022-03-14 13:15:06.856145 [PetsView](GET) searched_name=='False'
+2022-03-14 13:15:06.857141 [PetsView](GET) session['searched_pet'] not found 
+2022-03-14 13:15:06.857141 [PetsView](GET) return allPets(request)
+2022-03-14 13:15:06.858139 [PetsView](allPets) starting...
+2022-03-14 13:15:06.861130 <QuerySet [<Pet: Bella>, <Pet: Kitty>, <Pet: Lily>, <Pet: Lilly>, <Pet: Charlie>, <Pet: Lucy>, <Pet: Leo>, <Pet: Milo>, <Pet: Jack>, <Pet: Nala>, <Pet: Sam>, <Pet: Simba>, <Pet: Chloe>, <Pet: Baby>, <Pet: Sadie>, <Pet: Ziggy>, <Pet: Princess>, <Pet: Salem>, <Pet: Sophie>, <Pet: Shadow>, '...(remaining elements truncated)...']>
+2022-03-14 13:15:06.862136 [PetsView](allPets) ending...
+2022-03-14 13:15:15.410321 [PetsView](POST) received.
+2022-03-14 13:15:15.411318 [PetsView](POST) searched_name=='er'
+2022-03-14 13:15:15.415307 [PetsView](POST) session['searched_pet']='er'
+2022-03-14 13:15:15.416308 [PetsView](POST) is redirecting to (GET).
+2022-03-14 13:15:15.427104 [PetsView](GET) starting...
+2022-03-14 13:15:15.438979 [PetsView](GET) searched_name=session['searched_pet']
+2022-03-14 13:15:15.439979 [PetsView](GET) searched_name=='er'
+2022-03-14 13:15:15.439979 [PetsView](GET)<searched_name> condition starting...
+2022-03-14 13:15:15.440977 [PetsView](GET) deleting session['searched_pet']
+2022-03-14 13:15:15.441985 [PetsView](GET)<searched_name> searchPets('er')
+2022-03-14 13:15:15.442973 [PetsView](searchPets) starting..
+2022-03-14 13:15:15.445010 [PetsView](searchPets) found something for 'er'
+2022-03-14 13:15:15.446012 <QuerySet [<Pet: Cooper>, <Pet: Tiger>, <Pet: Tucker>, <Pet: Pepper>, <Pet: Tigger>, <Pet: Bagheera>, <Pet: Ginger>, <Pet: Piper>, <Pet: Walter>]>
+2022-03-14 13:15:15.447009 [PetsView](searchPets) creating 'info' message...
+2022-03-14 13:15:15.447009 [PetsView](searchPets) returning...
+2022-03-14 13:15:24.096379 [PetsView](GET) starting...
+2022-03-14 13:15:24.108338 [PetsView](GET) searched_name=session['searched_pet']
+2022-03-14 13:15:24.109314 [PetsView](GET) searched_name=='False'
+2022-03-14 13:15:24.110314 [PetsView](GET) session['searched_pet'] not found 
+2022-03-14 13:15:24.111310 [PetsView](GET) return allPets(request)
+2022-03-14 13:15:24.112308 [PetsView](allPets) starting...
+2022-03-14 13:15:24.116297 <QuerySet [<Pet: Bella>, <Pet: Kitty>, <Pet: Lily>, <Pet: Lilly>, <Pet: Charlie>, <Pet: Lucy>, <Pet: Leo>, <Pet: Milo>, <Pet: Jack>, <Pet: Nala>, <Pet: Sam>, <Pet: Simba>, <Pet: Chloe>, <Pet: Baby>, <Pet: Sadie>, <Pet: Ziggy>, <Pet: Princess>, <Pet: Salem>, <Pet: Sophie>, <Pet: Shadow>, '...(remaining elements truncated)...']>
+2022-03-14 13:15:24.116297 [PetsView](allPets) ending...
+2022-03-14 13:15:25.924920 [PetsView](GET) starting...
+2022-03-14 13:15:25.928912 [PetsView](GET) searched_name=session['searched_pet']
+2022-03-14 13:15:25.930907 [PetsView](GET) searched_name=='False'
+2022-03-14 13:15:25.931904 [PetsView](GET) session['searched_pet'] not found 
+2022-03-14 13:15:25.931904 [PetsView](GET) return allPets(request)
+2022-03-14 13:15:25.932902 [PetsView](allPets) starting...
+2022-03-14 13:15:25.936513 <QuerySet [<Pet: Bella>, <Pet: Kitty>, <Pet: Lily>, <Pet: Lilly>, <Pet: Charlie>, <Pet: Lucy>, <Pet: Leo>, <Pet: Milo>, <Pet: Jack>, <Pet: Nala>, <Pet: Sam>, <Pet: Simba>, <Pet: Chloe>, <Pet: Baby>, <Pet: Sadie>, <Pet: Ziggy>, <Pet: Princess>, <Pet: Salem>, <Pet: Sophie>, <Pet: Shadow>, '...(remaining elements truncated)...']>
+2022-03-14 13:15:25.937512 [PetsView](allPets) ending...
+2022-03-14 13:15:28.081422 [PetsView](POST) received.
+2022-03-14 13:15:28.082434 [PetsView](POST) searched_name==''
+2022-03-14 13:15:28.083425 [PetsView](POST) searched_name is 'None'
+2022-03-14 13:15:28.084415 [PetsView](POST) is redirecting to (GET).
+2022-03-14 13:15:28.092394 [PetsView](GET) starting...
+2022-03-14 13:15:28.094941 [PetsView](GET) searched_name=session['searched_pet']
+2022-03-14 13:15:28.095942 [PetsView](GET) searched_name=='False'
+2022-03-14 13:15:28.095942 [PetsView](GET) session['searched_pet'] not found 
+2022-03-14 13:15:28.096955 [PetsView](GET) return allPets(request)
+2022-03-14 13:15:28.098544 [PetsView](allPets) starting...
+2022-03-14 13:15:28.100566 <QuerySet [<Pet: Bella>, <Pet: Kitty>, <Pet: Lily>, <Pet: Lilly>, <Pet: Charlie>, <Pet: Lucy>, <Pet: Leo>, <Pet: Milo>, <Pet: Jack>, <Pet: Nala>, <Pet: Sam>, <Pet: Simba>, <Pet: Chloe>, <Pet: Baby>, <Pet: Sadie>, <Pet: Ziggy>, <Pet: Princess>, <Pet: Salem>, <Pet: Sophie>, <Pet: Shadow>, '...(remaining elements truncated)...']>
+2022-03-14 13:15:28.101539 [PetsView](allPets) ending...
+2022-03-14 13:15:32.361495 [PetsView](POST) received.
+2022-03-14 13:15:32.362492 [PetsView](POST) searched_name=='la'
+2022-03-14 13:15:32.367480 [PetsView](POST) session['searched_pet']='la'
+2022-03-14 13:15:32.368481 [PetsView](POST) is redirecting to (GET).
+2022-03-14 13:15:32.381442 [PetsView](GET) starting...
+2022-03-14 13:15:32.394407 [PetsView](GET) searched_name=session['searched_pet']
+2022-03-14 13:15:32.395404 [PetsView](GET) searched_name=='la'
+2022-03-14 13:15:32.396418 [PetsView](GET)<searched_name> condition starting...
+2022-03-14 13:15:32.397400 [PetsView](GET) deleting session['searched_pet']
+2022-03-14 13:15:32.398397 [PetsView](GET)<searched_name> searchPets('la')
+2022-03-14 13:15:32.399394 [PetsView](searchPets) starting..
+2022-03-14 13:15:32.401406 [PetsView](searchPets) found something for 'la'
+2022-03-14 13:15:32.402386 <QuerySet [<Pet: Bella>, <Pet: Nala>, <Pet: Lola>, <Pet: Ella>, <Pet: Layla>, <Pet: Leila>]>
+2022-03-14 13:15:32.403383 [PetsView](searchPets) creating 'info' message...
+2022-03-14 13:15:32.404381 [PetsView](searchPets) returning...
+2022-03-14 13:15:40.615886 [PetsView](GET) starting...
+2022-03-14 13:15:40.627849 [PetsView](GET) searched_name=session['searched_pet']
+2022-03-14 13:15:40.629847 [PetsView](GET) searched_name=='False'
+2022-03-14 13:15:40.630859 [PetsView](GET) session['searched_pet'] not found 
+2022-03-14 13:15:40.631850 [PetsView](GET) return allPets(request)
+2022-03-14 13:15:40.632838 [PetsView](allPets) starting...
+2022-03-14 13:15:40.636824 <QuerySet [<Pet: Bella>, <Pet: Kitty>, <Pet: Lily>, <Pet: Lilly>, <Pet: Charlie>, <Pet: Lucy>, <Pet: Leo>, <Pet: Milo>, <Pet: Jack>, <Pet: Nala>, <Pet: Sam>, <Pet: Simba>, <Pet: Chloe>, <Pet: Baby>, <Pet: Sadie>, <Pet: Ziggy>, <Pet: Princess>, <Pet: Salem>, <Pet: Sophie>, <Pet: Shadow>, '...(remaining elements truncated)...']>
+2022-03-14 13:15:40.637854 [PetsView](allPets) ending...
+2022-03-14 13:15:52.259952 [PetsView](POST) received.
+2022-03-14 13:15:52.260931 [PetsView](POST) searched_name=='la'
+2022-03-14 13:15:52.264920 [PetsView](POST) session['searched_pet']='la'
+2022-03-14 13:15:52.265919 [PetsView](POST) is redirecting to (GET).
+2022-03-14 13:15:52.277886 [PetsView](GET) starting...
+2022-03-14 13:15:52.289863 [PetsView](GET) searched_name=session['searched_pet']
+2022-03-14 13:15:52.290852 [PetsView](GET) searched_name=='la'
+2022-03-14 13:15:52.291850 [PetsView](GET)<searched_name> condition starting...
+2022-03-14 13:15:52.292847 [PetsView](GET) deleting session['searched_pet']
+2022-03-14 13:15:52.293843 [PetsView](GET)<searched_name> searchPets('la')
+2022-03-14 13:15:52.294842 [PetsView](searchPets) starting..
+2022-03-14 13:15:52.296835 [PetsView](searchPets) found something for 'la'
+2022-03-14 13:15:52.297832 <QuerySet [<Pet: Bella>, <Pet: Nala>, <Pet: Lola>, <Pet: Ella>, <Pet: Layla>, <Pet: Leila>]>
+2022-03-14 13:15:52.298830 [PetsView](searchPets) creating 'info' message...
+2022-03-14 13:15:52.299828 [PetsView](searchPets) returning...
+2022-03-14 13:16:44.558256 [PetsView](POST) received.
+2022-03-14 13:16:44.559256 [PetsView](POST) searched_name=='la'
+2022-03-14 13:16:44.564243 [PetsView](POST) session['searched_pet']='la'
+2022-03-14 13:16:44.565240 [PetsView](POST) is redirecting to (GET).
+2022-03-14 13:16:44.580529 [PetsView](GET) starting...
+2022-03-14 13:16:44.593282 [PetsView](GET) searched_name=session['searched_pet']
+2022-03-14 13:16:44.594292 [PetsView](GET) searched_name=='la'
+2022-03-14 13:16:44.594292 [PetsView](GET)<searched_name> condition starting...
+2022-03-14 13:16:44.595290 [PetsView](GET) deleting session['searched_pet']
+2022-03-14 13:16:44.596277 [PetsView](GET)<searched_name> searchPets('la')
+2022-03-14 13:16:44.597286 [PetsView](searchPets) starting..
+2022-03-14 13:16:44.599268 [PetsView](searchPets) found something for 'la'
+2022-03-14 13:16:44.600266 <QuerySet [<Pet: Bella>, <Pet: Nala>, <Pet: Lola>, <Pet: Ella>, <Pet: Layla>, <Pet: Leila>]>
+2022-03-14 13:16:44.601264 [PetsView](searchPets) creating 'info' message...
+2022-03-14 13:16:44.602260 [PetsView](searchPets) returning...
+2022-03-14 13:16:48.541283 [PetsView](GET) starting...
+2022-03-14 13:16:48.556246 [PetsView](GET) searched_name=session['searched_pet']
+2022-03-14 13:16:48.556246 [PetsView](GET) searched_name=='False'
+2022-03-14 13:16:48.557243 [PetsView](GET) session['searched_pet'] not found 
+2022-03-14 13:16:48.558247 [PetsView](GET) return allPets(request)
+2022-03-14 13:16:48.559238 [PetsView](allPets) starting...
+2022-03-14 13:16:48.562254 <QuerySet [<Pet: Bella>, <Pet: Kitty>, <Pet: Lily>, <Pet: Lilly>, <Pet: Charlie>, <Pet: Lucy>, <Pet: Leo>, <Pet: Milo>, <Pet: Jack>, <Pet: Nala>, <Pet: Sam>, <Pet: Simba>, <Pet: Chloe>, <Pet: Baby>, <Pet: Sadie>, <Pet: Ziggy>, <Pet: Princess>, <Pet: Salem>, <Pet: Sophie>, <Pet: Shadow>, '...(remaining elements truncated)...']>
+2022-03-14 13:16:48.563226 [PetsView](allPets) ending...
+2022-03-14 13:16:51.885022 [PetsView](GET) starting...
+2022-03-14 13:16:51.889012 [PetsView](GET) searched_name=session['searched_pet']
+2022-03-14 13:16:51.890010 [PetsView](GET) searched_name=='False'
+2022-03-14 13:16:51.891008 [PetsView](GET) session['searched_pet'] not found 
+2022-03-14 13:16:51.892010 [PetsView](GET) return allPets(request)
+2022-03-14 13:16:51.893001 [PetsView](allPets) starting...
+2022-03-14 13:16:51.896991 <QuerySet [<Pet: Bella>, <Pet: Kitty>, <Pet: Lily>, <Pet: Lilly>, <Pet: Charlie>, <Pet: Lucy>, <Pet: Leo>, <Pet: Milo>, <Pet: Jack>, <Pet: Nala>, <Pet: Sam>, <Pet: Simba>, <Pet: Chloe>, <Pet: Baby>, <Pet: Sadie>, <Pet: Ziggy>, <Pet: Princess>, <Pet: Salem>, <Pet: Sophie>, <Pet: Shadow>, '...(remaining elements truncated)...']>
+2022-03-14 13:16:51.898000 [PetsView](allPets) ending...
+2022-03-14 13:17:54.898041 [PetsView](GET) starting...
+2022-03-14 13:17:54.902011 [PetsView](GET) searched_name=session['searched_pet']
+2022-03-14 13:17:54.903014 [PetsView](GET) searched_name=='False'
+2022-03-14 13:17:54.904004 [PetsView](GET) session['searched_pet'] not found 
+2022-03-14 13:17:54.905002 [PetsView](GET) return allPets(request)
+2022-03-14 13:17:54.906010 [PetsView](allPets) starting...
+2022-03-14 13:17:54.909026 <QuerySet [<Pet: Bella>, <Pet: Kitty>, <Pet: Lily>, <Pet: Lilly>, <Pet: Charlie>, <Pet: Lucy>, <Pet: Leo>, <Pet: Milo>, <Pet: Jack>, <Pet: Nala>, <Pet: Sam>, <Pet: Simba>, <Pet: Chloe>, <Pet: Baby>, <Pet: Sadie>, <Pet: Ziggy>, <Pet: Princess>, <Pet: Salem>, <Pet: Sophie>, <Pet: Shadow>, '...(remaining elements truncated)...']>
+2022-03-14 13:17:54.909994 [PetsView](allPets) ending...
+2022-03-14 13:17:57.701026 [PetsView](POST) received.
+2022-03-14 13:17:57.702015 [PetsView](POST) searched_name=='la'
+2022-03-14 13:17:57.706013 [PetsView](POST) session['searched_pet']='la'
+2022-03-14 13:17:57.706997 [PetsView](POST) is redirecting to (GET).
+2022-03-14 13:17:57.718311 [PetsView](GET) starting...
+2022-03-14 13:17:57.730281 [PetsView](GET) searched_name=session['searched_pet']
+2022-03-14 13:17:57.731277 [PetsView](GET) searched_name=='la'
+2022-03-14 13:17:57.732273 [PetsView](GET)<searched_name> condition starting...
+2022-03-14 13:17:57.733272 [PetsView](GET) deleting session['searched_pet']
+2022-03-14 13:17:57.734282 [PetsView](GET)<searched_name> searchPets('la')
+2022-03-14 13:17:57.735275 [PetsView](searchPets) starting..
+2022-03-14 13:17:57.737260 [PetsView](searchPets) found something for 'la'
+2022-03-14 13:17:57.738257 <QuerySet [<Pet: Bella>, <Pet: Nala>, <Pet: Lola>, <Pet: Ella>, <Pet: Layla>, <Pet: Leila>]>
+2022-03-14 13:17:57.739256 [PetsView](searchPets) creating 'info' message...
+2022-03-14 13:17:57.740692 [PetsView](searchPets) returning...
+2022-03-14 13:18:43.722317 [PetsView](POST) received.
+2022-03-14 13:18:43.723259 [PetsView](POST) searched_name=='er'
+2022-03-14 13:18:43.735225 [PetsView](POST) session['searched_pet']='er'
+2022-03-14 13:18:43.736223 [PetsView](POST) is redirecting to (GET).
+2022-03-14 13:18:43.745655 [PetsView](GET) starting...
+2022-03-14 13:18:43.757709 [PetsView](GET) searched_name=session['searched_pet']
+2022-03-14 13:18:43.758724 [PetsView](GET) searched_name=='er'
+2022-03-14 13:18:43.758724 [PetsView](GET)<searched_name> condition starting...
+2022-03-14 13:18:43.759739 [PetsView](GET) deleting session['searched_pet']
+2022-03-14 13:18:43.760703 [PetsView](GET)<searched_name> searchPets('er')
+2022-03-14 13:18:43.761702 [PetsView](searchPets) starting..
+2022-03-14 13:18:43.762725 [PetsView](searchPets) found something for 'er'
+2022-03-14 13:18:43.763695 <QuerySet [<Pet: Cooper>, <Pet: Tiger>, <Pet: Tucker>, <Pet: Pepper>, <Pet: Tigger>, <Pet: Bagheera>, <Pet: Ginger>, <Pet: Piper>, <Pet: Walter>]>
+2022-03-14 13:18:43.764693 [PetsView](searchPets) creating 'info' message...
+2022-03-14 13:18:43.765706 [PetsView](searchPets) returning...
+2022-03-14 13:20:09.059349 [PetsView](POST) received.
+2022-03-14 13:20:09.060347 [PetsView](POST) searched_name=='el'
+2022-03-14 13:20:09.065068 [PetsView](POST) session['searched_pet']='el'
+2022-03-14 13:20:09.066070 [PetsView](POST) is redirecting to (GET).
+2022-03-14 13:20:09.075831 [PetsView](GET) starting...
+2022-03-14 13:20:09.094995 [PetsView](GET) searched_name=session['searched_pet']
+2022-03-14 13:20:09.095997 [PetsView](GET) searched_name=='el'
+2022-03-14 13:20:09.097327 [PetsView](GET)<searched_name> condition starting...
+2022-03-14 13:20:09.098274 [PetsView](GET) deleting session['searched_pet']
+2022-03-14 13:20:09.098274 [PetsView](GET)<searched_name> searchPets('el')
+2022-03-14 13:20:09.099273 [PetsView](searchPets) starting..
+2022-03-14 13:20:09.102265 [PetsView](searchPets) found something for 'el'
+2022-03-14 13:20:09.103274 <QuerySet [<Pet: Bella>, <Pet: Belle>, <Pet: Ella>, <Pet: Hazel>]>
+2022-03-14 13:20:09.103274 [PetsView](searchPets) creating 'info' message...
+2022-03-14 13:20:09.105257 [PetsView](searchPets) returning...
+2022-03-14 13:32:32.737570 Pet is Hazel
+2022-03-14 13:32:32.739565 <QuerySet []>
+2022-03-14 13:32:32.742565 {'pet_view': <Pet: Hazel>, 'pet_photos': <QuerySet []>}
+2022-03-14 13:38:42.477524 [PetsView](GET) starting...
+2022-03-14 13:38:42.478470 [PetsView](GET) searched_name=session['searched_pet']
+2022-03-14 13:38:42.479467 [PetsView](GET) searched_name=='False'
+2022-03-14 13:38:42.480465 [PetsView](GET) session['searched_pet'] not found 
+2022-03-14 13:38:42.481462 [PetsView](GET) return allPets(request)
+2022-03-14 13:38:42.482459 [PetsView](allPets) starting...
+2022-03-14 13:38:42.496037 <QuerySet [<Pet: Bella>, <Pet: Kitty>, <Pet: Lily>, <Pet: Lilly>, <Pet: Charlie>, <Pet: Lucy>, <Pet: Leo>, <Pet: Milo>, <Pet: Jack>, <Pet: Nala>, <Pet: Sam>, <Pet: Simba>, <Pet: Chloe>, <Pet: Baby>, <Pet: Sadie>, <Pet: Ziggy>, <Pet: Princess>, <Pet: Salem>, <Pet: Sophie>, <Pet: Shadow>, '...(remaining elements truncated)...']>
+2022-03-14 13:38:42.497036 [PetsView](allPets) ending...
+2022-03-14 13:38:43.813469 Pet is Walter
+2022-03-14 13:38:43.816462 <QuerySet []>
+2022-03-14 13:38:43.818691 {'pet_view': <Pet: Walter>, 'pet_photos': <QuerySet []>}
+2022-03-14 13:40:08.135285 No Pet!
+2022-03-14 13:41:48.054994 No Pet!

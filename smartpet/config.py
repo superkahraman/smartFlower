@@ -14,9 +14,9 @@ def xx(mymessage):
         print(mymessage)
         print(Style.RESET_ALL, end="")
     if log_file == True:
-        with open("smartpet.log", "a") as log_file:
+        with open("smartpet.log", "a") as file_log:
             log_message = str(mymessage)
             log_time = str(datetime.now())
-            log_file.write("\n" + log_time + " " + log_message)
-            log_file.close()
+            file_log.write("\n" + log_time + " " + log_message)
+            file_log.close()
     return None
