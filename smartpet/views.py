@@ -1,3 +1,12 @@
+#                                     _     _____    ______   _______
+#                                    | |   |  __ \  |  ____| |__   __|
+#    ___   _ __ ___     __ _   _ __  | |_  | |__) | | |__       | |
+#   / __| | '_ ` _ \   / _` | | '__| | __| |  ___/  |  __|      | |
+#   \__ \ | | | | | | | (_| | | |    | |_  | |      | |____     | |
+#   |___/ |_| |_| |_|  \__,_| |_|     \__| |_|      |______|    |_|
+#
+
+
 #from email import message
 from django.http import HttpResponseRedirect  # ,HttpResponse
 from django.shortcuts import render, redirect
@@ -14,16 +23,23 @@ from django.views import View
 from smartpet.config import *
 
 #########################################################
-# Home Page                                             #
+#   _   _                          ______
+#  | | | |                         | ___ \
+#  | |_| |  ___   _ __ ___    ___  | |_/ /  __ _   __ _   ___
+#  |  _  | / _ \ | '_ ` _ \  / _ \ |  __/  / _` | / _` | / _ \
+#  | | | || (_) || | | | | ||  __/ | |    | (_| || (_| ||  __/
+#  \_| |_/ \___/ |_| |_| |_| \___| \_|     \__,_| \__, | \___|
+#                                                  __/ |
+#                                                 |___/
 
 
 class HomePageView(View):
     def get(self, request):
         return render(request, 'smartpet/index.html')
 
-
 #########################################################
 # petTypes                                              #
+
 
 class petTypesView(View):
     def get(self, request):
@@ -93,8 +109,7 @@ class PetsView(View):
             xx("[PetsView](GET)<searched_name> condition starting...")
             xx("[PetsView](GET) deleting session['searched_pet']")
             del(request.session['searched_pet'])
-            xx(
-                "[PetsView](GET)<searched_name> searchPets('"+searched_name + "')")
+            xx("[PetsView](GET)<searched_name> searchPets('"+searched_name + "')")
             return searchPets(request, searched_name)
         else:
             searched_name = None
